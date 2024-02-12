@@ -1,0 +1,22 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}Sub Category{% endblock %}
+
+{% block content %}
+<h1>{{cate}}</h1>
+<div class="row">
+			{% for s in scato %}
+			<div class="col-lg-4 col-md-6 text-center">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a ><img src="{{s.S_img.url}}" height="200px"  alt=""></a>
+					</div>
+					<h3>{{s.sub_name}}</h3>
+<!--					<p class="product-price"><span>Per piece</span> {{w.price}} </p>-->
+<!--					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
+				</div>
+			</div>
+            {% endfor %}
+		</div>
+
+{% endblock %}

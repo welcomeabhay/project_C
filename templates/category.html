@@ -1,0 +1,24 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %} Products {% endblock %}
+
+{% block content %}
+<body class="cat" style="background-image:url('static/img/loom-1.jpg');background-size:cover;" >
+<!--	<img src="static/img/loom-1.jpg" alt="welcome_img" width="2000px" height="500px">-->
+	<h1>Our Products</h1>
+	<div class="row" >
+			{% for c in cato %}
+			<div class="col-lg-4 col-md-6 text-center">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="{% url 'sub_category' c.name %}"><img src="{{c.image.url}}" height="200px"  alt=""></a>
+					</div>
+					<h3>{{c.name}}</h3>
+<!--					<p class="product-price"><span>Per piece</span> {{w.price}} </p>-->
+<!--					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
+				</div>
+			</div>
+            {% endfor %}
+	</div>
+</body>
+{% endblock %}
