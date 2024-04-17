@@ -1,1 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project_c-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: project_c
+  template:
+    metadata:
+      labels:
+        app: project_c
+    spec:
+      containers:
+      - name: project_c
+        image: your-project_c-image:tag
+        ports:
+        - containerPort: 8000
+        env:
+        - name: project_c_SECRET_KEY
+          value: "your_secret_key"
+        # Add other environment variables as needed
+
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: project_c-service
+spec:
+  selector:
+    app: project_c
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: ClusterIP
 
